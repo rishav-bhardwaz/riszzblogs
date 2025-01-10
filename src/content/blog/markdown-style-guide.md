@@ -85,7 +85,7 @@ useAriaHidden(ref, isHidden);
 
 ## Contribution
 
-As the creator, **Rishav Bhardwaz** encourages developers to contribute by submitting issues, feature requests, and pull requests on the [GitHub repository](https://github.com/your-repo-link).
+As the creator, **Rishav Bhardwaz** encourages developers to contribute by submitting issues, feature requests, and pull requests on the [GitHub repository](https://github.com/rishav-bhardwaz/react-access-helper).
 
 ## License
 

@@ -1,214 +1,97 @@
 ---
-title: 'Markdown Style Guide'
-description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
-pubDate: 'Jun 19 2024'
-heroImage: '/blog-placeholder-1.jpg'
+title: 'React Access Helper - NPM Package Guide'
+description: 'Comprehensive guide on using the react-access-helper package created by Rishav Bhardwaz.'
+pubDate: 'Jan 11 2025'
+heroImage: '/react-access-helper.jpg'
 ---
 
-Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+# React Access Helper
 
-## Headings
+`react-access-helper` is a lightweight and efficient React utility package designed to simplify handling accessibility features in React applications. Created by **Rishav Bhardwaz**, this package provides developers with tools to enhance web accessibility, ensuring compliance with WCAG guidelines.
 
-The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+## Installation
 
-# H1
-
-## H2
-
-### H3
-
-#### H4
-
-##### H5
-
-###### H6
-
-## Paragraph
-
-Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
-
-Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
-
-## Images
-
-### Syntax
-
-```markdown
-![Alt text](./full/or/relative/path/of/image)
+```bash
+npm install react-access-helper
 ```
 
-### Output
+or
 
-![blog placeholder](/blog-placeholder-about.jpg)
-
-## Blockquotes
-
-The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
-
-### Blockquote without attribution
-
-#### Syntax
-
-```markdown
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+```bash
+yarn add react-access-helper
 ```
 
-#### Output
+## Usage
 
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+```javascript
+import { useFocusTrap, useKeyPress } from 'react-access-helper';
 
-### Blockquote with attribution
+function Modal({ isOpen, onClose }) {
+  const modalRef = useRef(null);
+  useFocusTrap(modalRef, isOpen);
+  useKeyPress('Escape', onClose);
 
-#### Syntax
-
-```markdown
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
+  return (
+    isOpen && (
+      <div ref={modalRef} role="dialog" aria-modal="true">
+        <button onClick={onClose}>Close</button>
+        <p>Modal Content</p>
+      </div>
+    )
+  );
+}
 ```
 
-#### Output
+### Explanation
 
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
+- **`useFocusTrap`**: Traps the focus within a specified element (ideal for modals, drawers).
+- **`useKeyPress`**: Listens for specific key presses (like 'Escape' to close modals).
 
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
+## Features
 
-## Tables
+### Focus Management
 
-### Syntax
-
-```markdown
-| Italics   | Bold     | Code   |
-| --------- | -------- | ------ |
-| _italics_ | **bold** | `code` |
+```javascript
+const ref = useRef(null);
+useFocusTrap(ref, isActive);
 ```
 
-### Output
+- Ensures that the focus does not escape interactive components like modals.
 
-| Italics   | Bold     | Code   |
-| --------- | -------- | ------ |
-| _italics_ | **bold** | `code` |
+### Keyboard Accessibility
 
-## Code Blocks
-
-### Syntax
-
-we can use 3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntax, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash
-
-````markdown
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Example HTML5 Document</title>
-  </head>
-  <body>
-    <p>Test</p>
-  </body>
-</html>
-```
-````
-
-### Output
-
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Example HTML5 Document</title>
-  </head>
-  <body>
-    <p>Test</p>
-  </body>
-</html>
+```javascript
+useKeyPress('Enter', () => console.log('Enter key pressed'));
 ```
 
-## List Types
+- Simplifies handling keyboard interactions, improving navigation for users relying on keyboards.
 
-### Ordered List
+### ARIA Helpers
 
-#### Syntax
+```javascript
+import { useAriaHidden } from 'react-access-helper';
 
-```markdown
-1. First item
-2. Second item
-3. Third item
+useAriaHidden(ref, isHidden);
 ```
 
-#### Output
+- Dynamically manages ARIA attributes to enhance screen reader compatibility.
 
-1. First item
-2. Second item
-3. Third item
+## Advantages
 
-### Unordered List
+- **Lightweight**: Minimal performance overhead.
+- **Developer-Friendly**: Easy-to-use hooks.
+- **Accessibility Focused**: Aligns with WCAG standards.
+- **Customizable**: Flexible for various use cases.
 
-#### Syntax
+## Contribution
 
-```markdown
-- List item
-- Another item
-- And another item
-```
+As the creator, **Rishav Bhardwaz** encourages developers to contribute by submitting issues, feature requests, and pull requests on the [GitHub repository](https://github.com/your-repo-link).
 
-#### Output
+## License
 
-- List item
-- Another item
-- And another item
+`react-access-helper` is open-source and available under the MIT License.
 
-### Nested list
+## Conclusion
 
-#### Syntax
+Enhance your React applications with accessibility best practices using `react-access-helper`. Built by **Rishav Bhardwaz**, this package simplifies managing focus, keyboard interactions, and ARIA attributes for an inclusive user experience.
 
-```markdown
-- Fruit
-  - Apple
-  - Orange
-  - Banana
-- Dairy
-  - Milk
-  - Cheese
-```
-
-#### Output
-
-- Fruit
-  - Apple
-  - Orange
-  - Banana
-- Dairy
-  - Milk
-  - Cheese
-
-## Other Elements — abbr, sub, sup, kbd, mark
-
-### Syntax
-
-```markdown
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-
-H<sub>2</sub>O
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
-
-Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
-
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
-```
-
-### Output
-
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-
-H<sub>2</sub>O
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
-
-Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
-
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.

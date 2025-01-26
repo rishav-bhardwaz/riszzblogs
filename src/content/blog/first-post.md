@@ -1,7 +1,7 @@
 ---
 title: 'Learn making amazing website design and components with Eventrue'
 description: 'Learning Figma Components'
-pubDate: 'Jan 11 2024'
+pubDate: 'Jan 26 2025'
 heroImage: '/mockup.png'
 ---
 
@@ -54,4 +54,8 @@ Ever opened an old Figma file and thought, "What in the world was I thinking?" W
 With these concepts in mind, the Eventure design journey has been smoother than expected (minus a few creative breakdowns and excessive coffee consumption). Figma’s features like components, auto layout, and design systems are here to save us all from chaos.
 
 And remember: Design smart, not hard! 🎨✨
+
+Also here is the link to the figma file of Eventrue 
+<a href="https://www.figma.com/design/BWvpyMBM4hUt3yoHpb4wAv/Eventure?node-id=0-1&t=TixOOLEXr02mpscl-1" target="_blank" rel="noopener noreferrer">Click Here</a>
+
 

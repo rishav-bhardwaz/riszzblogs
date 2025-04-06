@@ -1,7 +1,7 @@
 ---
 title: 'Learn making amazing website design and components with Eventrue'
 description: 'Learning Figma Components'
-pubDate: 'Jan 26 2025'
+pubDate: 'Feb 26 2025'
 heroImage: '/mockup.png'
 ---
 
